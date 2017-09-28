@@ -1,0 +1,19 @@
+language: node_js
+deploy:
+  provider: npm
+  email: nggiang12@gmail.com
+  api_key:
+    secure: MjAogI9xmR4byZKxTvnuwuGYtWpqYzCzyi7I25HkXWpwdWqXSuRUm/PhxuHW9AAZZfPHpvfXCIY9SzXsSrr7dwzAPtllS4J/RAwTlGNlFwpuGoPdfOnYBqbKIs2UgxzcNvuBbwwz4+DhyrhPhxnPNIMgm/h/nm8aH3q0nh3iJqgJP/FxmzQd23rLLlyqvxe+cv/N6T1Rx5dlPdQ0BdvwCcAgMYeLfFDDzrZ2N4vrGSoVMV2edkf2TaPN6hFCHioEIWP4NJz/iYUvTzZdvP5s3GemClMeISbuycgZIsTafrGK1wXjCqb+1v650iC+Cx2KCCVi8zDzXy9SCFygAHGVpp1m1nGxaeivDN2x24alcGgZbIpWfHPmKfzk2GRd83rmIZ0F4NI6faUeC4sm8l2LLjrMVznI/7qA0UNkBh05kSzQ312xdTlVQSciVsGKM+WWmMOGqg5SDh32VktNJg7meLda+YAmX/T6JL07wNedF9znQPwobaLLanuCqhScuzI5/Tq+4kI4HU6dM5dsuf5ZCe4Snt6ofezIh5U3kG8G67qLZ0U3E/iI/tgkBmbpMOEfPmBoUGFRTnGIrDOb8wdXXftV2vIAQNn8lTUEmQXaZ3DJPSFVwOyEw26juTJh+qMYrNwoZ3mKKAovg4vQhrembsivwfaTo7Nf83DMPOTpTn8=
+  on:
+    tags: true
+    repo: giang12/winston-kafka-connect
+node_js:
+- stable
+- '6'
+- '6.1'
+- '5.11'
+- '0.10'
+- iojs
+env:
+  global:
+    secure: N3rL6KKHjf0rNtG5NOM125RV7X2B+kWWBRg/dJOhmMAZwKN8Y6iyC8VIOGGuJlD0ubh/0iynTGrxRe+SK8Rf8aiH+5LbicUmx5DYzutNKC35w1YPD+gyuIftrQz4ZnKNdq9dOKaTiMgEmhk6S8yKnJ4i79ynVHiN2+eihAi3VAz5b8iopm35LqCREYO2nl4KggKoDgewKhQXHbSKwYwh/+hQodMPdEi1f3D2AIWxo1sFGq+ffcao+lZ0qzh5paQts+NZk9pzDOHn2pyf0M8HU00rdrxaiEtp+Wm5ycKa3pa5E94Ea1hMVdxGLOsKCO+vYPWiyr+q5V7u17+h1HUdtqCzY7fmiTic6LvgA83UGTlke3kbqYG6GGhgqPWhwNQ10asnskzz88Kgw+CP05xNDg26do5MaigCMf4R0KcWyPlQ7kCKGc+P2nwsDzZgyNoycAVhxvdyMjDMnyacbZXkgdZOhKK89vsfszZ4H2AFLDXFz0lHFlhss8m9NiOThQSN6BQrazL8BHg+PGnJJOlpvJ5ZSDkI6gsLh09NMyEB1fYMiRJ9YDYUOttloZ1q4qm3WFRnzWhs/75zXy8zRqG5QrCwsscGSofuC/zt/Q59kUbeOII4TJTgRzpWrYDXvzP+wue69jMGVRzSPUmbj0ezneNU265LNbl6iw9CdFyMcg4=

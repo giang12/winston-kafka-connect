@@ -2,8 +2,7 @@ language: node_js
 deploy:
   provider: npm
   email: nggiang12@gmail.com
-  api_key:
-    secure: MjAogI9xmR4byZKxTvnuwuGYtWpqYzCzyi7I25HkXWpwdWqXSuRUm/PhxuHW9AAZZfPHpvfXCIY9SzXsSrr7dwzAPtllS4J/RAwTlGNlFwpuGoPdfOnYBqbKIs2UgxzcNvuBbwwz4+DhyrhPhxnPNIMgm/h/nm8aH3q0nh3iJqgJP/FxmzQd23rLLlyqvxe+cv/N6T1Rx5dlPdQ0BdvwCcAgMYeLfFDDzrZ2N4vrGSoVMV2edkf2TaPN6hFCHioEIWP4NJz/iYUvTzZdvP5s3GemClMeISbuycgZIsTafrGK1wXjCqb+1v650iC+Cx2KCCVi8zDzXy9SCFygAHGVpp1m1nGxaeivDN2x24alcGgZbIpWfHPmKfzk2GRd83rmIZ0F4NI6faUeC4sm8l2LLjrMVznI/7qA0UNkBh05kSzQ312xdTlVQSciVsGKM+WWmMOGqg5SDh32VktNJg7meLda+YAmX/T6JL07wNedF9znQPwobaLLanuCqhScuzI5/Tq+4kI4HU6dM5dsuf5ZCe4Snt6ofezIh5U3kG8G67qLZ0U3E/iI/tgkBmbpMOEfPmBoUGFRTnGIrDOb8wdXXftV2vIAQNn8lTUEmQXaZ3DJPSFVwOyEw26juTJh+qMYrNwoZ3mKKAovg4vQhrembsivwfaTo7Nf83DMPOTpTn8=
+  api_key: $NPM_TOKEN
   on:
     tags: true
     repo: giang12/winston-kafka-connect

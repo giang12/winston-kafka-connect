@@ -11,7 +11,19 @@
     "kafka",
     "connector"
   ],
-  "author": "Zen",
+  "author": {
+    "name": "Giang Nguyen",
+    "email": "nggiang12@gmail.com",
+    "url": "https://github.com/giang12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giang12/winston-kafka-connect.git"
+  },
+  "bugs": {
+    "url": "https://github.com/giang12/winston-kafka-connect/issues"
+  },
+  "homepage": "https://github.com/giang12/winston-kafka-connect#readme",
   "license": "MIT",
   "dependencies": {
     "kafka-node": "^2.2.3",

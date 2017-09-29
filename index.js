@@ -9,6 +9,9 @@ function WinstonKafkaLogger(options) {
 	//
 	// Name this logger
 	//
+	this._payloads = [];
+	this.numPerBatch = 1;
+
 	this.name = options.name || "WinstonKafkaLogger";
 
 	this.timestamp = options.timestamp || function() {
@@ -58,18 +61,21 @@ WinstonKafkaLogger.prototype.log = function(level, msg, meta, callback) {
 	//
 	// Store this message and metadata, maybe use some custom logic
 	// then callback indicating success.
-	//
-	if (this.connected) {
-		const payload = {
-			level: level,
-			msg: msg,
-			meta: _.defaultsDeep({}, meta, this.meta),
-			timestamp: this.timestamp()
-		};
-		const payloads = [{
-			topic: this.topic,
-			messages: [this.formatter(payload)]
-		}];
+	const payload = {
+		level: level,
+		msg: msg,
+		meta: _.defaultsDeep({}, meta, this.meta),
+		timestamp: this.timestamp()
+	};
+	this._payloads.push({
+		topic: this.topic,
+		messages: [this.formatter(payload)]
+	});
+
+	if (this.connected && this._payloads.length >= this.numPerBatch) {
+
+		const payloads = this._payloads;
+		this._payloads = [];
 		try {
 			this.producer.send(payloads, () => { /**nop**/ });
 		} catch (err) {

@@ -2,6 +2,12 @@ winston-kafka-connect
 =======================
 Simple [kafka](http://kafka.apache.org/) transport for [winston](https://github.com/winstonjs/winston)
 (winston as source to kafka connector)
+
+
+[![NPM](https://nodei.co/npm/winston-kafka-connect.svg?downloads=true&downloadRank=true)](https://nodei.co/npm/winston-kafka-connect/)&nbsp;&nbsp;
+[![Build Status](https://travis-ci.org/giang12/winston-kafka-connect.svg?branch=master)](https://travis-ci.org/giang12/winston-kafka-connect)
+
+
 ## Install
 
 ```sh

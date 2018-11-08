@@ -76,11 +76,9 @@ WinstonKafkaLogger.prototype.log = function(level, msg, meta, callback) {
 
 		const payloads = this._payloads;
 		this._payloads = [];
-		try {
-			this.producer.send(payloads, () => { /**nop**/ });
-		} catch (err) {
-			console.log(err);
-		}
+		this.producer.send(payloads, (err, data) => {
+			if (err) winston.error(err);
+		});
 	}
 	callback(null, true);
 };

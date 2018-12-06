@@ -2,6 +2,7 @@ language: node_js
 script:
   - npm run make
 deploy:
+  skip_cleanup: true
   provider: npm
   email: nggiang12@gmail.com
   api_key: $NPM_TOKEN

@@ -1,16 +1,16 @@
-const debug = require('debug')('winstonkafkatransport');
+const debug = require("debug")("winstonkafkatransport");
 
-const { KafkaClient, HighLevelProducer } = require('kafka-node');
-const Transport = require('winston-transport');
+const { KafkaClient, HighLevelProducer } = require("kafka-node");
+const Transport = require("winston-transport");
 
-const _ = require('lodash');
+const _ = require("lodash");
 const noop = () => undefined;
 
 const DEFAULTS = {
-  topic: 'winston-kafka-logs',
+  topic: "winston-kafka-logs",
   kafkaClient: {
-    kafkaHost: '127.0.0.1:9092', //required!
-    clientId: 'winston-kafka-logger',
+    kafkaHost: "127.0.0.1:9092", //required!
+    clientId: "winston-kafka-logger",
     connectTimeout: 10 * 1000,
     requestTimeout: 30 * 1000,
     idleConnection: 5 * 60 * 1000,
@@ -51,7 +51,7 @@ export class WinstonKafkaTransport extends Transport {
     //
     // Configure your storage backing as you see fit
     if (options.localstore) {
-      debug('mocking producer');
+      debug("mocking producer");
       this.producer = {
         send(payloads, cb) {
           payloads.forEach(p => {
@@ -69,14 +69,14 @@ export class WinstonKafkaTransport extends Transport {
       };
       this.connected = true;
     } else {
-      debug('piping to kafka stream');
+      debug("piping to kafka stream");
       this.client = new KafkaClient(this.options.kafkaClient);
       this.producer = new HighLevelProducer(this.client, this.options.producer);
       this.producer
-        .on('ready', () => {
+        .on("ready", () => {
           this.connected = true;
         })
-        .on('error', err => {
+        .on("error", err => {
           this.connected = false;
           debug(err);
           throw new Error(err);
@@ -85,21 +85,21 @@ export class WinstonKafkaTransport extends Transport {
   }
 
   _sendPayload(payload, callback) {
-    callback = typeof callback === 'function' ? callback : noop;
+    callback = typeof callback === "function" ? callback : noop;
 
     if (!payload) {
-      return callback(new Error('Missing required payload.'));
+      return callback(new Error("Missing required payload."));
     }
 
     if (!this.connected) {
-      debug('waiting for producer...');
+      debug("waiting for producer...");
 
-      return this.producer.once('ready', () =>
+      return this.producer.once("ready", () =>
         this.producer.send(payload, callback)
       );
     }
 
-    debug('hasta luego', payload);
+    debug("hasta luego", payload);
     this.producer.send(payload, callback);
   }
 
@@ -118,7 +118,7 @@ export class WinstonKafkaTransport extends Transport {
       debug(error);
       return callback(error);
     }
-    this.emit('logged', payload);
+    this.emit("logged", payload);
 
     this._sendPayload(payload, error => {
       if (error) {
@@ -129,6 +129,7 @@ export class WinstonKafkaTransport extends Transport {
   }
 
   close(callback) {
+    this.connected = false;
     this.producer.close(callback);
   }
 }

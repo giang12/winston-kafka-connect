@@ -4,7 +4,11 @@
   "description": "winston as source to kafka connector",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "clean": "rm -rf package-lock.json dist/ node_modules/ coverage/",
+    "make": "npm run clean && npm i && npm run build && npm run test",
+    "build": "npm run compile",
+    "compile": "tsc",
+    "test": "jest --forceExit --coverage --verbose --detectOpenHandles"
   },
   "keywords": [
     "winston",
@@ -25,9 +29,18 @@
   },
   "homepage": "https://github.com/giang12/winston-kafka-connect#readme",
   "license": "MIT",
+  "peerDependencies": {
+    "winston": "^3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "^3.2.1",
+    "jest": "^23.6.0"
+  },
   "dependencies": {
-    "kafka-node": "^2.2.3",
-    "lodash": "^4.17.4",
-    "winston": "^2.3.1"
+    "kafka-node": "^3.0.1",
+    "lodash": "^4.17.11",
+    "semver": "^5.6.0",
+    "winston-transport": "^4.2.0"
   }
 }

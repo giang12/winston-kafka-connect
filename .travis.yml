@@ -1,4 +1,6 @@
 language: node_js
+script:
+  - npm run make
 deploy:
   provider: npm
   email: nggiang12@gmail.com
@@ -8,10 +10,9 @@ deploy:
     repo: giang12/winston-kafka-connect
 node_js:
 - stable
+- '9'
+- '8'
 - '6'
-- '6.1'
-- '5.11'
-- '0.10'
 - iojs
 env:
   global:

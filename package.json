@@ -1,6 +1,6 @@
 {
   "name": "winston-kafka-connect",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "description": "winston as source to kafka connector",
   "main": "index.js",
   "scripts": {
@@ -10,11 +10,7 @@
     "compile": "tsc",
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles"
   },
-  "keywords": [
-    "winston",
-    "kafka",
-    "connector"
-  ],
+  "keywords": ["winston", "kafka", "connector"],
   "author": {
     "name": "Giang Nguyen",
     "email": "nggiang12@gmail.com",

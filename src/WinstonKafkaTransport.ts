@@ -49,7 +49,7 @@ export class WinstonKafkaTransport extends Transport {
         return Date.now();
       };
     this.connected = false;
-    this.format = options.format || CircularJSON.stringify;
+    this.jsonformatter = options.jsonformatter || CircularJSON.stringify;
     //
     // Configure your storage backing as you see fit
     if (options.localstore) {
@@ -112,7 +112,7 @@ export class WinstonKafkaTransport extends Transport {
       payload = [
         {
           topic: this.options.topic,
-          messages: [this.format(message)],
+          messages: [this.jsonformatter.stringify(message)],
           timestamp: this.timestamp()
         }
       ];

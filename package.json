@@ -10,7 +10,11 @@
     "compile": "tsc",
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles"
   },
-  "keywords": ["winston", "kafka", "connector"],
+  "keywords": [
+    "winston",
+    "kafka",
+    "connector"
+  ],
   "author": {
     "name": "Giang Nguyen",
     "email": "nggiang12@gmail.com",
@@ -34,6 +38,7 @@
     "jest": "^23.6.0"
   },
   "dependencies": {
+    "circular-json": "^0.5.9",
     "kafka-node": "^3.0.1",
     "lodash": "^4.17.11",
     "semver": "^5.6.0",

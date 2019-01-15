@@ -2,6 +2,7 @@ const debug = require("debug")("winstonkafkatransport");
 
 const { KafkaClient, HighLevelProducer } = require("kafka-node");
 const Transport = require("winston-transport");
+const CircularJSON = require('circular-json');
 
 const _ = require("lodash");
 const noop = () => undefined;
@@ -48,6 +49,7 @@ export class WinstonKafkaTransport extends Transport {
         return Date.now();
       };
     this.connected = false;
+    this.format = options.format || CircularJSON.stringify;
     //
     // Configure your storage backing as you see fit
     if (options.localstore) {
@@ -110,7 +112,7 @@ export class WinstonKafkaTransport extends Transport {
       payload = [
         {
           topic: this.options.topic,
-          messages: [JSON.stringify(message)],
+          messages: [this.format(message)],
           timestamp: this.timestamp()
         }
       ];

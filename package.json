@@ -1,6 +1,6 @@
 {
   "name": "winston-kafka-connect",
-  "version": "2.0.3",
+  "version": "2.0.12",
   "description": "winston as source to kafka connector",
   "main": "index.js",
   "scripts": {

@@ -49,7 +49,7 @@ export class WinstonKafkaTransport extends Transport {
         return Date.now();
       };
     this.connected = false;
-    this.jsonformatter = options.jsonformatter || CircularJSON.stringify;
+    this.jsonformatter = options.jsonformatter || CircularJSON;
     //
     // Configure your storage backing as you see fit
     if (options.localstore) {

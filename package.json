@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf package-lock.json dist/ node_modules/ coverage/",
-    "make": "npm run clean && npm i && npm run build && npm run test",
+    "make": "npm run clean && npm i && npm run test",
     "build": "npm run compile",
     "compile": "tsc",
-    "test": "jest --forceExit --coverage --verbose --detectOpenHandles"
+    "test": "npm run build && jest --forceExit --coverage --verbose --detectOpenHandles"
   },
   "keywords": [
     "winston",
